@@ -1,0 +1,266 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Immersions\\TeamProj\\TeamProjWebApi\\TeamProj.csproj": {}
+  },
+  "projects": {
+    "C:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj",
+        "projectName": "TeamProj.Data",
+        "projectPath": "C:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj",
+        "packagesPath": "C:\\Users\\trent\\.nuget\\packages\\",
+        "outputPath": "C:\\Immersions\\TeamProj\\TeamProj.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\trent\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Immersions\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Immersions\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj",
+        "projectName": "TeamProj.Models",
+        "projectPath": "C:\\Immersions\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj",
+        "packagesPath": "C:\\Users\\trent\\.nuget\\packages\\",
+        "outputPath": "C:\\Immersions\\TeamProj\\TeamProj.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\trent\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Immersions\\TeamProj\\TeamProj.Services\\TeamProj.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Immersions\\TeamProj\\TeamProj.Services\\TeamProj.Services.csproj",
+        "projectName": "TeamProj.Services",
+        "projectPath": "C:\\Immersions\\TeamProj\\TeamProj.Services\\TeamProj.Services.csproj",
+        "packagesPath": "C:\\Users\\trent\\.nuget\\packages\\",
+        "outputPath": "C:\\Immersions\\TeamProj\\TeamProj.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\trent\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj": {
+                "projectPath": "C:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj"
+              },
+              "C:\\Immersions\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj": {
+                "projectPath": "C:\\Immersions\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Immersions\\TeamProj\\TeamProjWebApi\\TeamProj.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Immersions\\TeamProj\\TeamProjWebApi\\TeamProj.csproj",
+        "projectName": "TeamProj",
+        "projectPath": "C:\\Immersions\\TeamProj\\TeamProjWebApi\\TeamProj.csproj",
+        "packagesPath": "C:\\Users\\trent\\.nuget\\packages\\",
+        "outputPath": "C:\\Immersions\\TeamProj\\TeamProjWebApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\trent\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj": {
+                "projectPath": "C:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj"
+              },
+              "C:\\Immersions\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj": {
+                "projectPath": "C:\\Immersions\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj"
+              },
+              "C:\\Immersions\\TeamProj\\TeamProj.Services\\TeamProj.Services.csproj": {
+                "projectPath": "C:\\Immersions\\TeamProj\\TeamProj.Services\\TeamProj.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

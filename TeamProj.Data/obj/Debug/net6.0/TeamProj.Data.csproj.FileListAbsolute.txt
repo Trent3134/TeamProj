@@ -1,0 +1,12 @@
+C:\Immersions\TeamProj\TeamProj.Data\bin\Debug\net6.0\TeamProj.Data.deps.json
+C:\Immersions\TeamProj\TeamProj.Data\bin\Debug\net6.0\TeamProj.Data.dll
+C:\Immersions\TeamProj\TeamProj.Data\bin\Debug\net6.0\TeamProj.Data.pdb
+C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.csproj.AssemblyReference.cache
+C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.AssemblyInfoInputs.cache
+C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.AssemblyInfo.cs
+C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.csproj.CoreCompileInputs.cache
+C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.dll
+C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\refint\TeamProj.Data.dll
+C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.pdb
+C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\ref\TeamProj.Data.dll
