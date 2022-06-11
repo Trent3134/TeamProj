@@ -40,4 +40,19 @@ public class PostService : IPostService
         var numberOfChanges = await _dbContext.SaveChangesAsync();
         return numberOfChanges == 1;
     }
+
+    public async Task<PostDetail> GetPostById(int postId)
+    {
+        var postEntity = await _dbContext.Posts
+            .FirstOrDefault(e =>
+                e.Id == postId && e.OwnerId == _userId
+                );
+
+        return PostEntity is null ? null : new PostDetail
+        {
+            Id = PostEntity.Id,
+            Title = PostEntity.Title,
+            Text = PostEntity.Text
+        };
+    }
 }

@@ -28,4 +28,14 @@ public class PostController : ControllerBase
         return Ok(posts);
     }
 
+    [HttpGet("{noteId:int}")]
+    public async Task<IActionResult> GetPostById([FromRoute] int postId)
+    {
+        var detail = await _postService.GetPostByIdAsync(postId);
+
+        return detail is not null
+            ? Ok(detail)
+            : NotFound();
+    }
+
 }
