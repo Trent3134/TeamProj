@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 
 
-
     public class ReplyMap : Profile
     {
         public ReplyMap()
@@ -13,12 +12,12 @@ using AutoMapper;
             CreateMap<ReplyEntity, ReplyDetail>();
             CreateMap<ReplyEntity, ReplyListItem>();
 
-            CreateMap<ReplyCreate, ReplyEntity>()
+            CreateMap<ReplyModel, ReplyEntity>()
             .ForMember(reply => reply.CreatedUtc,
-            OperatingSystem => opt.MapFrom(SearchOption => DateTimeOffset.Now));
+            opt => opt.MapFrom(SearchOption => DateTimeOffset.Now));
 
             CreateMap<ReplyUpdate, ReplyEntity>()
             .ForMember(reply => reply.ModifiedUtc,
-            OperatingSystem => opt.MapFrom(SearchOption => DateTimeOffset.Now));
+            opt => opt.MapFrom(SearchOption => DateTimeOffset.Now));
         }
     }

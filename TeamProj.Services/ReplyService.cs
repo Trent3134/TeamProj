@@ -1,16 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
-
-    public class ReplyService : IReplyService
+public class ReplyService : IReplyService
     {
         private readonly IMapper _mapper;
         private readonly int _userId;
         private readonly ApplicationDbContext _context;
-        public ReplyService(IhttpContextAccessor httpContextAccessor, IMapper mapper, ApplicationDbContext dbContext)
+        public ReplyService(IHttpContextAccessor httpContextAccessor, IMapper mapper, ApplicationDbContext dbContext)
         {
             var userReply = httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
             var value = userReply.FindFirst("Id")?.Value;
@@ -24,9 +26,9 @@ using Microsoft.AspNetCore.Http;
             _context = dbContext;
         }
 
-        public async Task<bool> CreateReplyAsync(ReplyCreate request)
+        public async Task<bool> CreateReplyAsync(ReplyModel request)
         {
-            var replyEntity = _mapper.Map<ReplyCreate, ReplyEntity>(request, opt =>
+            var replyEntity = _mapper.Map<ReplyModel, ReplyEntity>(request, opt =>
             opt.AfterMap((src, dest)=>dest.OwnerId = _userId));
             _context.Reply.Add(replyEntity);
 
@@ -47,7 +49,7 @@ using Microsoft.AspNetCore.Http;
         public async Task<ReplyDetail> GetReplyByIdAsync(int replyId)
         {
 
-        var replyEntity = await _dbContext.Replies
+        var replyEntity = await _context.Reply
             .FirstOrDefaultAsync(e =>
                 e.Id == replyId && e.OwnerId ==_userId);
         return replyEntity is null ? null : new ReplyDetail
@@ -60,25 +62,25 @@ using Microsoft.AspNetCore.Http;
         }
         public async Task<bool> UpdateReplyAsync(ReplyUpdate request)
         {
-            var replyEntity = await _dbContext.Replies.FindAsync(request.Id);
+            var replyEntity = await _context.Reply.FindAsync(request.Id);
             if(replyEntity?.OwnerId != _userId)
                 return false;
             
             replyEntity.Reply = request.Reply;
             replyEntity.ModifiedUtc = DateTimeOffset.Now;
 
-            var numberOfChanges = await _dbContext.SaveChangesAsync();
+            var numberOfChanges = await _context.SaveChangesAsync();
             return numberOfChanges ==1;
         }
         
         public async Task<bool> DeleteReplyAsync(int replyId)
         {
-            var replyEntity = await _dbContext.Reply.FindAsync(replyId);
+            var replyEntity = await _context.Reply.FindAsync(replyId);
 
             if (replyEntity?.OwnerId != _userId)
                 return false;
 
-            _dbContext.Reply.Remove(replyEntity);
-            return await _dbContext.SaveChangesAsync() ==1;
+            _context.Reply.Remove(replyEntity);
+            return await _context.SaveChangesAsync() ==1;
         }
     }

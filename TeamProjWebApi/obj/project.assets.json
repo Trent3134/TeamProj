@@ -3167,6 +3167,10 @@
       "TeamProj.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "TeamProj.Data": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/TeamProj.Models.dll": {}
         },
@@ -3178,6 +3182,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5",
           "TeamProj.Data": "1.0.0",
