@@ -8,4 +8,11 @@ public class PostController : ControllerBase
     {
         _postService = postService;
     }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllPosts()
+    {
+        var posts = await _postService.GetAllPostsAsync();
+        return Ok(posts);
+    }
 }

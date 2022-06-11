@@ -1,7 +1,8 @@
 public class PostService : IPostService
 {
     private readonly int _userId;
-    public PostService(IHttpContextAccessor httpContextAccessor)
+    private readonly ApplicationDbContext _dbContext;
+    public PostService(IHttpContextAccessor httpContextAccessor, ApplicationDbContext dbContext)
     {
         var userClaims = httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
         var value = userClaims.FindFirst("Id")?.Value;
@@ -11,5 +12,19 @@ public class PostService : IPostService
         {
             throw new Exception("Attempted to build PostService without User Id claim");
         }
+        _dbContext = dbContext;
+    }
+    public async Task<IEnumerable<PostListItem>> GetAllPostsAsync()
+    {
+        var posts = await _dbContext.Posts
+            .Where(entity => entity.OwnerId == _userId)
+            .Select(entity => new PostListItem
+            {
+                Id = entity.Id,
+                Title = entity.Title,
+            })
+        .ToListAsync();
+
+        return posts;
     }
 }
