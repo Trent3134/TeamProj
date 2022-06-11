@@ -26,12 +26,12 @@ using Microsoft.Extensions.Logging;
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateReply([FromBody] ReplyCreate request)
+        public async Task<IActionResult> ModelReply([FromBody] ReplyModel request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (await _replyService.CreateReplyAsync(request))
+            if (await _replyService.ModelReplyAsync(request))
                 return Okay("Reply created successfully.");
 
             return BadRequest("Reply could not be created");

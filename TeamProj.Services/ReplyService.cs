@@ -25,7 +25,6 @@ public class ReplyService : IReplyService
             _mapper = mapper;
             _context = dbContext;
         }
-
         public async Task<bool> CreateReplyAsync(ReplyModel request)
         {
             var replyEntity = _mapper.Map<ReplyModel, ReplyEntity>(request, opt =>
@@ -35,7 +34,6 @@ public class ReplyService : IReplyService
             var numberOfChanges = await _context.SaveChangesAsync();
             return numberOfChanges ==1;
         }
-
         public async Task<IEnumerable<ReplyListItem>> GetAllRepliesAsync()
         {
             var replies = await _context.Reply
@@ -45,7 +43,6 @@ public class ReplyService : IReplyService
 
             return replies;
         }
-
         public async Task<ReplyDetail> GetReplyByIdAsync(int replyId)
         {
 
@@ -71,8 +68,7 @@ public class ReplyService : IReplyService
 
             var numberOfChanges = await _context.SaveChangesAsync();
             return numberOfChanges ==1;
-        }
-        
+        }     
         public async Task<bool> DeleteReplyAsync(int replyId)
         {
             var replyEntity = await _context.Reply.FindAsync(replyId);
