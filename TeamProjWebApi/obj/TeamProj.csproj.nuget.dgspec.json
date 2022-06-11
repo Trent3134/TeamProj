@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "/Users/tracyredman/Desktop/ElevenFiftyProjects/144_Immersions/timedAssignment/TeamProj/TeamProjWebAPI/TeamProj.csproj": {}
+    "/Users/tracyredman/Desktop/ElevenFiftyProjects/144_Immersions/timedAssignment/TeamProj/TeamProjWebApi/TeamProj.csproj": {}
   },
   "projects": {
     "/Users/tracyredman/Desktop/ElevenFiftyProjects/144_Immersions/timedAssignment/TeamProj/TeamProj.Data/TeamProj.Data.csproj": {
@@ -155,6 +155,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.5, )"
@@ -179,14 +183,14 @@
         }
       }
     },
-    "/Users/tracyredman/Desktop/ElevenFiftyProjects/144_Immersions/timedAssignment/TeamProj/TeamProjWebAPI/TeamProj.csproj": {
+    "/Users/tracyredman/Desktop/ElevenFiftyProjects/144_Immersions/timedAssignment/TeamProj/TeamProjWebApi/TeamProj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tracyredman/Desktop/ElevenFiftyProjects/144_Immersions/timedAssignment/TeamProj/TeamProjWebAPI/TeamProj.csproj",
+        "projectUniqueName": "/Users/tracyredman/Desktop/ElevenFiftyProjects/144_Immersions/timedAssignment/TeamProj/TeamProjWebApi/TeamProj.csproj",
         "projectName": "TeamProj",
-        "projectPath": "/Users/tracyredman/Desktop/ElevenFiftyProjects/144_Immersions/timedAssignment/TeamProj/TeamProjWebAPI/TeamProj.csproj",
+        "projectPath": "/Users/tracyredman/Desktop/ElevenFiftyProjects/144_Immersions/timedAssignment/TeamProj/TeamProjWebApi/TeamProj.csproj",
         "packagesPath": "/Users/tracyredman/.nuget/packages/",
-        "outputPath": "/Users/tracyredman/Desktop/ElevenFiftyProjects/144_Immersions/timedAssignment/TeamProj/TeamProjWebAPI/obj/",
+        "outputPath": "/Users/tracyredman/Desktop/ElevenFiftyProjects/144_Immersions/timedAssignment/TeamProj/TeamProjWebApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/tracyredman/.nuget/NuGet/NuGet.Config"
@@ -223,6 +227,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.5, )"

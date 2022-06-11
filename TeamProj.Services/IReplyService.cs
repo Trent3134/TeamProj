@@ -6,5 +6,9 @@ using System.Threading.Tasks;
 
     public interface IReplyService
     {
+        Task<IEnumerable<ReplyListItem>> GetAllRepliesAsync();
         Task<bool> CreateReplyAsync(ReplyCreate request);
+        Task<ReplyDetail> GetReplyByIdAsync(int replyId);
+        Task<bool> UpdateReplyAsync(ReplyUpdate request);
+
     }
