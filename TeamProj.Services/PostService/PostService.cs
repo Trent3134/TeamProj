@@ -27,4 +27,17 @@ public class PostService : IPostService
 
         return posts;
     }
+
+    public async Task<bool> CreatePostAsync(PostCreate request)
+    {
+        var postEntity = new PostEntity
+        {
+            Title = request.Title,
+            Text = request.Text
+        };
+        _dbContext.Posts.Add(postEntity);
+
+        var numberOfChanges = await _dbContext.SaveChangesAsync();
+        return numberOfChanges == 1;
+    }
 }
