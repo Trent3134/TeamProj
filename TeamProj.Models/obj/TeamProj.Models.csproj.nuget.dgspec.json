@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Immersions\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj": {}
+    "C:\\Users\\kasel\\_David_elevenfifty\\72teamProj\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj": {}
   },
   "projects": {
-    "C:\\Immersions\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj": {
+    "C:\\Users\\kasel\\_David_elevenfifty\\72teamProj\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Immersions\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj",
+        "projectUniqueName": "C:\\Users\\kasel\\_David_elevenfifty\\72teamProj\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj",
         "projectName": "TeamProj.Models",
-        "projectPath": "C:\\Immersions\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj",
-        "packagesPath": "C:\\Users\\trent\\.nuget\\packages\\",
-        "outputPath": "C:\\Immersions\\TeamProj\\TeamProj.Models\\obj\\",
+        "projectPath": "C:\\Users\\kasel\\_David_elevenfifty\\72teamProj\\TeamProj\\TeamProj.Models\\TeamProj.Models.csproj",
+        "packagesPath": "C:\\Users\\kasel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kasel\\_David_elevenfifty\\72teamProj\\TeamProj\\TeamProj.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\trent\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\kasel\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +37,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -54,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
