@@ -55,4 +55,18 @@ public class PostService : IPostService
             Text = PostEntity.Text
         };
     }
+
+    public async Task<PostUpdate> UpdatePostAsync(PostUpdate request)
+    {
+        var postEntity = await _dbContext.Posts.FindAsync(request.Id);
+
+        if (postEntity?.OwnerId != _userId)
+            return false;
+
+        postEntity.Title = request.Title;
+        postEntity.Text = request.Text;
+
+        var numberOfChanges = await _dbContext.SaveChangesAsync();
+        return numberOfChanges;
+    }
 }

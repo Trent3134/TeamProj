@@ -38,4 +38,14 @@ public class PostController : ControllerBase
             : NotFound();
     }
 
+    [HttpPut]
+    public async Task<IActionResult> UpdatePostById([FromBody] PostUpdate request)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+            return await _postService.UpdatePostAsync(request)
+                ? Ok("Post Updated Successfully.")
+                : BadRequest("Post Could Not Be Updated.");
+    }
+
 }
