@@ -25,3 +25,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+//copied from elevennote unsure if right place
+services.AddHttpContextAccessor();
+
+services.AddScoped<IPostService, PostService>();
