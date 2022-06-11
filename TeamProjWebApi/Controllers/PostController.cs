@@ -48,4 +48,13 @@ public class PostController : ControllerBase
                 : BadRequest("Post Could Not Be Updated.");
     }
 
+    [HttpDelete("{postId:int}")]
+    public async Task<IActionResult> DeletePostFromId([FromRoute] int postId)
+    {
+        return await _postService.DeletePostAsync(postId)
+            ? Ok($"Post {PostId} was deleted successfully.")
+            : BadRequest($"Post {PostId} could not be deleted.");
+    }
+
+
 }

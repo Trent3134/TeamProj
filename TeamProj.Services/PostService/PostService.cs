@@ -69,4 +69,16 @@ public class PostService : IPostService
         var numberOfChanges = await _dbContext.SaveChangesAsync();
         return numberOfChanges;
     }
+
+    public async Task<bool> DeletePostAsync(int postId)
+    {
+        var postEntity = await _dbContext.Posts.FindPostAsync(postId);
+
+        if (postEntity?.OwnerId != _userId)
+            return false;
+
+        _dbContext.Posts.Remove(postEntity);
+        return await _dbContext.SaveChangesAsync() == 1;
+    }
+
 }

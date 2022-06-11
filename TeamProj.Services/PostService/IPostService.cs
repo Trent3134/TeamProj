@@ -4,4 +4,5 @@ public interface IPostService
     Task<IEnumerable<PostListItem>> GetAllPostsAsync();
     Task<PostDetail> GetPostByIdAsync (int postId);
     Task<bool> UpdatePostAsync(PostUpdate request);
+    Task<bool> DeletePostAsync(int noteId);
 }
