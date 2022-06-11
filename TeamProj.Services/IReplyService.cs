@@ -10,5 +10,6 @@ using System.Threading.Tasks;
         Task<bool> CreateReplyAsync(ReplyCreate request);
         Task<ReplyDetail> GetReplyByIdAsync(int replyId);
         Task<bool> UpdateReplyAsync(ReplyUpdate request);
+        Task<bool> DeleteReplyAsync(int replyId);
 
     }

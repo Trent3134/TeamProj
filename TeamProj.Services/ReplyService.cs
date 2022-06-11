@@ -71,5 +71,14 @@ using Microsoft.AspNetCore.Http;
             return numberOfChanges ==1;
         }
         
+        public async Task<bool> DeleteReplyAsync(int replyId)
+        {
+            var replyEntity = await _dbContext.Reply.FindAsync(replyId);
 
+            if (replyEntity?.OwnerId != _userId)
+                return false;
+
+            _dbContext.Reply.Remove(replyEntity);
+            return await _dbContext.SaveChangesAsync() ==1;
+        }
     }

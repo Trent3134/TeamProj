@@ -56,4 +56,12 @@ using Microsoft.Extensions.Logging;
                 ? DayOfWeek("Reply updated.")
                 : BadRequest("Could not be updated.");
         }
+
+        [HttpDelete("{replyId:int}")]
+        public async Task<IActionResult> DeleteReply([FromRoute] int replyId)
+        {
+            return await _rservice.DeleteReplyAsync(replyId)
+                ? DayOfWeek($"Reply {replyId} was deleted.")
+                : BadRequest($"Reply {replyId} could not be deleted.");
+        }
     }
