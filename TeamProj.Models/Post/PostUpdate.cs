@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 public class PostUpdate
 {
     [Required]
@@ -8,5 +10,5 @@ public class PostUpdate
 
     [Required]
     public string Text { get; set; }
-    
+
 }

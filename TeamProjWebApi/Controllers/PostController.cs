@@ -1,4 +1,13 @@
-[Authorize]
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+
+
+
 [Route("api/[controller]")]
 [ApiController]
 public class PostController : ControllerBase
@@ -52,8 +61,8 @@ public class PostController : ControllerBase
     public async Task<IActionResult> DeletePostFromId([FromRoute] int postId)
     {
         return await _postService.DeletePostAsync(postId)
-            ? Ok($"Post {PostId} was deleted successfully.")
-            : BadRequest($"Post {PostId} could not be deleted.");
+            ? Ok("Post was deleted successfully.")
+            : BadRequest("Post could not be deleted.");
     }
 
 

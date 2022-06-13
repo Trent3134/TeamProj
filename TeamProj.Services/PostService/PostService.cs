@@ -1,3 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+
+
 public class PostService : IPostService
 {
     private readonly int _userId;
@@ -33,7 +43,9 @@ public class PostService : IPostService
         var postEntity = new PostEntity
         {
             Title = request.Title,
-            Text = request.Text
+            Text = request.Text,
+            CreatedUtc = DateTime.Now,
+            OwnerId = _userId
         };
         _dbContext.Posts.Add(postEntity);
 
@@ -41,22 +53,22 @@ public class PostService : IPostService
         return numberOfChanges == 1;
     }
 
-    public async Task<PostDetail> GetPostById(int postId)
+    public async Task<PostDetail> GetPostByIdAsync(int postId)
     {
         var postEntity = await _dbContext.Posts
-            .FirstOrDefault(e =>
+            .FirstOrDefaultAsync(e =>
                 e.Id == postId && e.OwnerId == _userId
                 );
 
-        return PostEntity is null ? null : new PostDetail
+        return postEntity is null ? null : new PostDetail
         {
-            Id = PostEntity.Id,
-            Title = PostEntity.Title,
-            Text = PostEntity.Text
+            Id = postEntity.Id,
+            Title = postEntity.Title,
+            Text = postEntity.Text
         };
     }
 
-    public async Task<PostUpdate> UpdatePostAsync(PostUpdate request)
+    public async Task<bool> UpdatePostAsync(PostUpdate request)
     {
         var postEntity = await _dbContext.Posts.FindAsync(request.Id);
 
@@ -67,12 +79,12 @@ public class PostService : IPostService
         postEntity.Text = request.Text;
 
         var numberOfChanges = await _dbContext.SaveChangesAsync();
-        return numberOfChanges;
+        return numberOfChanges == 1;
     }
 
     public async Task<bool> DeletePostAsync(int postId)
     {
-        var postEntity = await _dbContext.Posts.FindPostAsync(postId);
+        var postEntity = await _dbContext.Posts.FindAsync(postId);
 
         if (postEntity?.OwnerId != _userId)
             return false;

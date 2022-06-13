@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -27,6 +30,6 @@ app.MapControllers();
 app.Run();
 
 //copied from elevennote unsure if right place
-services.AddHttpContextAccessor();
+builder.Services.AddHttpContextAccessor();
 
-services.AddScoped<IPostService, PostService>();
+builder.Services.AddScoped<IPostService, PostService>();

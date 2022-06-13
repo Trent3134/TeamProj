@@ -83,7 +83,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\kasel\\_David_elevenfifty\\72teamProj\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj": {
+                "projectPath": "C:\\Users\\kasel\\_David_elevenfifty\\72teamProj\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -95,6 +99,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -155,6 +165,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
               "version": "[2.2.0, )"

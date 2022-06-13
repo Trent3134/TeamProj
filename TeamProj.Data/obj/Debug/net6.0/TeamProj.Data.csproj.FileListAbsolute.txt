@@ -10,3 +10,15 @@ C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.dll
 C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\refint\TeamProj.Data.dll
 C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.pdb
 C:\Immersions\TeamProj\TeamProj.Data\obj\Debug\net6.0\ref\TeamProj.Data.dll
+C:\Users\kasel\_David_elevenfifty\72teamProj\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.csproj.AssemblyReference.cache
+C:\Users\kasel\_David_elevenfifty\72teamProj\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kasel\_David_elevenfifty\72teamProj\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.AssemblyInfoInputs.cache
+C:\Users\kasel\_David_elevenfifty\72teamProj\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.AssemblyInfo.cs
+C:\Users\kasel\_David_elevenfifty\72teamProj\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.csproj.CoreCompileInputs.cache
+C:\Users\kasel\_David_elevenfifty\72teamProj\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.dll
+C:\Users\kasel\_David_elevenfifty\72teamProj\TeamProj\TeamProj.Data\obj\Debug\net6.0\ref\TeamProj.Data.dll
+C:\Users\kasel\_David_elevenfifty\72teamProj\TeamProj\TeamProj.Data\obj\Debug\net6.0\TeamProj.Data.pdb
+C:\Users\kasel\_David_elevenfifty\72teamProj\TeamProj\TeamProj.Data\bin\Debug\net6.0\TeamProj.Data.deps.json
+C:\Users\kasel\_David_elevenfifty\72teamProj\TeamProj\TeamProj.Data\bin\Debug\net6.0\TeamProj.Data.dll
+C:\Users\kasel\_David_elevenfifty\72teamProj\TeamProj\TeamProj.Data\bin\Debug\net6.0\ref\TeamProj.Data.dll
+C:\Users\kasel\_David_elevenfifty\72teamProj\TeamProj\TeamProj.Data\bin\Debug\net6.0\TeamProj.Data.pdb

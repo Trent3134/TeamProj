@@ -1,3 +1,6 @@
+using System;
+using AutoMapper;
+
 public class PostMapProfile : Profile
 {
     public PostMapProfile()
