@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] 
     [ApiController]
-    public class ReplyController 
+    public class ReplyController : ControllerBase
     {   
         private readonly IReplyService _rservice;
         public ReplyController(IReplyService rservice)
@@ -31,8 +31,8 @@ using Microsoft.Extensions.Logging;
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (await _replyService.ModelReplyAsync(request))
-                return Okay("Reply created successfully.");
+            if (await _rservice.ModelReplyAsync(request))
+                return Ok("Reply created successfully.");
 
             return BadRequest("Reply could not be created");
         }
@@ -40,7 +40,7 @@ using Microsoft.Extensions.Logging;
         [HttpGet("{replyId:int}")]
         public async Task<IActionResult> GetReplyById([FromRoute] int replyId)
         {
-            var detail = await _replyService.GetReplyByIdAsync(replyId);
+            var detail = await _rservice.GetReplyByIdAsync(replyId);
             return detail is not null
                 ?Ok(detail)
                 : NotFound();
@@ -53,7 +53,7 @@ using Microsoft.Extensions.Logging;
                 return BadRequest(ModelState);
 
             return await _rservice.UpdateReplyAsync(request)
-                ? DayOfWeek("Reply updated.")
+                ? Ok("Reply updated.")
                 : BadRequest("Could not be updated.");
         }
 
@@ -61,7 +61,7 @@ using Microsoft.Extensions.Logging;
         public async Task<IActionResult> DeleteReply([FromRoute] int replyId)
         {
             return await _rservice.DeleteReplyAsync(replyId)
-                ? DayOfWeek($"Reply {replyId} was deleted.")
+                ? Ok($"Reply {replyId} was deleted.")
                 : BadRequest($"Reply {replyId} could not be deleted.");
         }
     }

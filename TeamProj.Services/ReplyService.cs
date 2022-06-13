@@ -7,6 +7,8 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
+
+
 public class ReplyService : IReplyService
     {
         private readonly IMapper _mapper;
@@ -48,7 +50,7 @@ public class ReplyService : IReplyService
 
         var replyEntity = await _context.Reply
             .FirstOrDefaultAsync(e =>
-                e.Id == replyId && e.OwnerId ==_userId);
+            e.Id == replyId && e.OwnerId ==_userId);
         return replyEntity is null ? null : new ReplyDetail
         {
             Id = replyEntity.Id,
@@ -79,4 +81,9 @@ public class ReplyService : IReplyService
             _context.Reply.Remove(replyEntity);
             return await _context.SaveChangesAsync() ==1;
         }
+
+    public Task<bool> ModelReplyAsync(ReplyModel request)
+    {
+        throw new NotImplementedException();
     }
+}
