@@ -53,13 +53,13 @@ public class CommentController : ControllerBase
         {
             return BadRequest();
         }
-         return await _cservice.UpdateCommentAsync(Id, req)? Ok($"comment  was deleted successfully"): BadRequest($"comment  could not be deleted.");
+         return await _cservice.UpdateCommentAsync(req)? Ok($"comment  was Updated successfully"): BadRequest($"comment  could not be Updated.");
     }
 
     [HttpDelete("{commentId:int}")]
     public async Task<IActionResult> DeleteComment([FromRoute] int commentId)
     {
         return await _cservice.DeleteCommentAsync(commentId)
-        ? Ok($"Comment {commentId}") : BadRequest($"Comment {commentId} could not be deleted");
+        ? Ok($"Comment {commentId} was deleted successfully!") : BadRequest($"Comment {commentId} could not be deleted");
     }
 }
