@@ -7,8 +7,6 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
-
-
 public class ReplyService : IReplyService
     {
         private readonly IMapper _mapper;
@@ -16,21 +14,21 @@ public class ReplyService : IReplyService
         private readonly ApplicationDbContext _context;
         public ReplyService(IHttpContextAccessor httpContextAccessor, IMapper mapper, ApplicationDbContext dbContext)
         {
-            var userReply = httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
-            var value = userReply.FindFirst("Id")?.Value;
-            var validId = int.TryParse(value, out _userId);
-            if(!validId)
-            {
-                throw new Exception("Attempted tp build ReplyService without user Id claim");
-            }
+            // var userReply = httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
+            // var value = userReply.FindFirst("Id")?.Value;
+            // var validId = int.TryParse(value, out _userId);
+            // if(!validId)
+            // {
+            //     throw new Exception("Attempted to build ReplyService without user Id claim");
+            // }
 
             _mapper = mapper;
             _context = dbContext;
         }
         public async Task<bool> CreateReplyAsync(ReplyModel request)
         {
-            var replyEntity = _mapper.Map<ReplyModel, ReplyEntity>(request, opt =>
-            opt.AfterMap((src, dest)=>dest.OwnerId = _userId));
+            var replyEntity = _mapper.Map<ReplyModel, ReplyEntity>(request);
+            replyEntity.CreatedUtc = DateTime.Now;
             _context.Reply.Add(replyEntity);
 
             var numberOfChanges = await _context.SaveChangesAsync();
@@ -38,52 +36,39 @@ public class ReplyService : IReplyService
         }
         public async Task<IEnumerable<ReplyListItem>> GetAllRepliesAsync()
         {
-            var replies = await _context.Reply
-            .Where(entity => entity.OwnerId ==_userId)
-            .Select(entity => _mapper.Map<ReplyListItem>(entity))
-            .ToListAsync();
-
-            return replies;
+            var reply = await _context.Reply.ToListAsync();
+            var conversion = _mapper.Map<List<ReplyListItem>>(reply);
+            return conversion;
         }
         public async Task<ReplyDetail> GetReplyByIdAsync(int replyId)
         {
-
         var replyEntity = await _context.Reply
             .FirstOrDefaultAsync(e =>
-            e.Id == replyId && e.OwnerId ==_userId);
-        return replyEntity is null ? null : new ReplyDetail
-        {
-            Id = replyEntity.Id,
-            Reply = replyEntity.Reply,
-            CreatedUtc = replyEntity.CreatedUtc,
-            ModifiedUtc = replyEntity.ModifiedUtc
-        };
+            e.Id == replyId);
+        return replyEntity is null ? null : _mapper.Map<ReplyDetail>(replyEntity);
         }
-        public async Task<bool> UpdateReplyAsync(ReplyUpdate request)
+        public async Task<bool> UpdateReplyAsync(int Id, ReplyUpdate request)
         {
-            var replyEntity = await _context.Reply.FindAsync(request.Id);
-            if(replyEntity?.OwnerId != _userId)
+            var replyEntity = await _context.Reply.FirstOrDefaultAsync(reply => 
+            reply.Id == request.Id);
+            if(replyEntity == null)
                 return false;
-            
-            replyEntity.Reply = request.Reply;
-            replyEntity.ModifiedUtc = DateTimeOffset.Now;
+                var newEntity = _mapper.Map(request, replyEntity);
+
+                newEntity.ModifiedUtc = DateTime.Now;
+                _context.Reply.Update(newEntity);
 
             var numberOfChanges = await _context.SaveChangesAsync();
             return numberOfChanges ==1;
         }     
-        public async Task<bool> DeleteReplyAsync(int replyId)
+        public async Task<bool> DeleteReplyAsync(int Id)
         {
-            var replyEntity = await _context.Reply.FindAsync(replyId);
+            var replyEntity = await _context.Reply.FindAsync(Id);
 
-            if (replyEntity?.OwnerId != _userId)
+            if (replyEntity == null)
                 return false;
 
             _context.Reply.Remove(replyEntity);
             return await _context.SaveChangesAsync() ==1;
         }
-
-    public Task<bool> ModelReplyAsync(ReplyModel request)
-    {
-        throw new NotImplementedException();
     }
-}

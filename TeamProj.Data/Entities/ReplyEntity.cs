@@ -11,10 +11,8 @@ public class ReplyEntity
         public int Id { get; set; } 
 
         [Required]
-        [ForeignKey(nameof(Com))]
         public int CommentId { get; set; }
-        public CommentsEntity Com { get; set; }
-        public int OwnerId { get; set; }
+        //public int OwnerId { get; set; }
         public string Reply { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
     public interface IReplyService
     {
         Task<IEnumerable<ReplyListItem>> GetAllRepliesAsync();
-        Task<bool> ModelReplyAsync(ReplyModel request);
-        Task<ReplyDetail> GetReplyByIdAsync(int replyId);
-        Task<bool> UpdateReplyAsync(ReplyUpdate request);
-        Task<bool> DeleteReplyAsync(int replyId);
+        Task<bool> CreateReplyAsync(ReplyModel request);
+        Task<ReplyDetail> GetReplyByIdAsync(int Id);
+        Task<bool> UpdateReplyAsync(int Id, ReplyUpdate request);
+        Task<bool> DeleteReplyAsync(int Id);
     }

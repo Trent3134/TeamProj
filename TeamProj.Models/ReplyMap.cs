@@ -10,14 +10,10 @@ using AutoMapper;
         public ReplyMap()
         {
             CreateMap<ReplyEntity, ReplyDetail>();
-            CreateMap<ReplyEntity, ReplyListItem>();
+            CreateMap<ReplyEntity, ReplyListItem>().ReverseMap();
 
-            CreateMap<ReplyModel, ReplyEntity>()
-            .ForMember(reply => reply.CreatedUtc,
-            opt => opt.MapFrom(SearchOption => DateTimeOffset.Now));
+            CreateMap<ReplyModel, ReplyEntity>().ReverseMap();
 
-            CreateMap<ReplyUpdate, ReplyEntity>()
-            .ForMember(reply => reply.ModifiedUtc,
-            opt => opt.MapFrom(SearchOption => DateTimeOffset.Now));
+            CreateMap<ReplyUpdate, ReplyEntity>().ReverseMap();
         }
     }
