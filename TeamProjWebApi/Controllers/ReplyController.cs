@@ -16,25 +16,23 @@ using Microsoft.Extensions.Logging;
         {
             _rservice = rservice;
         }
-
-        [HttpGet]
-        public async Task<IActionResult> GetAllReplies()
-        {
-            var replies = await _rservice.GetAllRepliesAsync();
-            return Ok(replies);
-        }
-
-
         [HttpPost]
         public async Task<IActionResult> ModelReply([FromBody] ReplyModel request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (await _rservice.ModelReplyAsync(request))
+            if (await _rservice.CreateReplyAsync(request))
                 return Ok("Reply created successfully.");
 
             return BadRequest("Reply could not be created");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllReplies()
+        {
+            var replies = await _rservice.GetAllRepliesAsync();
+            return Ok(replies);
         }
 
         [HttpGet("{replyId:int}")]
@@ -46,19 +44,19 @@ using Microsoft.Extensions.Logging;
                 : NotFound();
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateReplyById([FromBody] ReplyUpdate request)
+        [HttpPut("{Id}")]
+        public async Task<IActionResult> UpdateReplyAsync([FromRoute] int Id, ReplyUpdate request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            return await _rservice.UpdateReplyAsync(request)
+            return await _rservice.UpdateReplyAsync(Id, request)
                 ? Ok("Reply updated.")
                 : BadRequest("Could not be updated.");
         }
 
         [HttpDelete("{replyId:int}")]
-        public async Task<IActionResult> DeleteReply([FromRoute] int replyId)
+        public async Task<IActionResult> DeleteReplyAsync([FromRoute] int replyId)
         {
             return await _rservice.DeleteReplyAsync(replyId)
                 ? Ok($"Reply {replyId} was deleted.")
