@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj": {}
+    "c:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj": {}
   },
   "projects": {
-    "C:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj": {
+    "c:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj",
+        "projectUniqueName": "c:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj",
         "projectName": "TeamProj.Data",
-        "projectPath": "C:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj",
+        "projectPath": "c:\\Immersions\\TeamProj\\TeamProj.Data\\TeamProj.Data.csproj",
         "packagesPath": "C:\\Users\\trent\\.nuget\\packages\\",
-        "outputPath": "C:\\Immersions\\TeamProj\\TeamProj.Data\\obj\\",
+        "outputPath": "c:\\Immersions\\TeamProj\\TeamProj.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\trent\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,12 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.5, )"
